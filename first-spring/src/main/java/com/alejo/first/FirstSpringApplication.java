@@ -15,6 +15,7 @@ public class FirstSpringApplication {
 		SpringApplication.run(FirstSpringApplication.class, args);
 	}
 	
+	/*
 	@RequestMapping("/")
 	public String hello() {
 		return "hello world in spring boot..!";
@@ -24,4 +25,10 @@ public class FirstSpringApplication {
 	public String products() {
 		return "products list...";
 	}
+	
+	@GetMapping("/product/id")
+	public String proudct(int id) {
+		return "your product is: " + id;
+	}
+	*/
 }
