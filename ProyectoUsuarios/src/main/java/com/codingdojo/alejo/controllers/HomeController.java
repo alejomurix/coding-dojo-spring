@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class HomeController {
 	
 	//@RequestMapping(value="/", method=RequestMethod.GET) // metodo request antiguo. version generica de las peticione http
-	@GetMapping("/")	// "/" indica la raiz de la ruta o pagina de inicio
+	@GetMapping("")	// "/" indica la raiz de la ruta o pagina de inicio
 	public String home() {
 		return "hello from my controler REST.";
 	}
