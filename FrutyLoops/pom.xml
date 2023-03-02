@@ -8,10 +8,10 @@
 		<version>2.7.9</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.alejo.first</groupId>
-	<artifactId>ProyectoUsuarios</artifactId>
+	<groupId>com.codingdojo</groupId>
+	<artifactId>FrutyLoops</artifactId>
 	<version>1.0.0</version>
-	<name>ProyectoUsuarios</name>
+	<name>FrutyLoops</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -29,14 +29,14 @@
 		</dependency>
 		
 		<dependency>
-                <groupId>org.apache.tomcat.embed</groupId>
-                <artifactId>tomcat-embed-jasper</artifactId>
-        </dependency>
-        <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>jstl</artifactId>
-        </dependency>
-        
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
