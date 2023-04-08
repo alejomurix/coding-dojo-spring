@@ -2,3 +2,18 @@
 h2 {
 	color: blue;
 }
+
+span {
+	text-align: center;
+	font-size: 18px;
+}
+
+.look {
+	background-color: blue;
+	text-align: center;
+	padding: 5px;
+}
+
+p {
+	background-color: white;
+}

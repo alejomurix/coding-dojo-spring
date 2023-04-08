@@ -17,12 +17,16 @@
 				<th>nombre</th>
 				<th>apellido</th>
 				<th>email</th>
+				<th>Acciones</th>
 			</tr>
 			<c:forEach items="${ usuarios }" var="usuario">
 				<tr>
 					<td><c:out value="${ usuario.firstName }" /></td>
 					<td><c:out value="${ usuario.lastName }" /></td>
 					<td><c:out value="${ usuario.mail }" /></td>
+					<td> 
+						<a href="/edit/${ usuario.id }" class="btn btn-warning">Editar</a> 
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

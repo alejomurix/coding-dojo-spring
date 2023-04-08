@@ -5,14 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.codingdojo.cynthia.modelos.Usuario;
-import com.codingdojo.cynthia.repositories.RepositoryUsuarios;
+import com.codingdojo.cynthia.modelos.*;
+import com.codingdojo.cynthia.repositories.*;
 
 @Service
 public class AppService {
 	
 	@Autowired
 	private RepositoryUsuarios repUsuarios;
+	
+	private RepositorySalon repSalon;
 	
 	public List<Usuario> findUsuarios() {
 		return repUsuarios.findAll();
@@ -29,5 +31,12 @@ public class AppService {
 	public void deleteUsuario(long id) {
 		repUsuarios.deleteById(id);
 	}
+	
+	public List<Salon> findSalones() {
+		return repSalon.findAll();
+	}
 
+	public Salon findSalon(Long id) {
+		return repSalon.findById(id).orElse(null);
+	}
 }

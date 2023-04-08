@@ -1,4 +1,4 @@
-package com.codingdojo.cynthia.modelos;
+package com.codingdojo.dojos.models;
 
 import java.util.Date;
 
@@ -14,33 +14,25 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="usuarios") // minusculas y plural
-public class Usuario {
+@Table(name="ninjas")
+public class Ninja {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
 	
-	@NotNull // @NotEmpty
-	@Size(min=2, max=100, message="El nombre debe tener al menos 2 caracteres.")
+	@NotNull
 	private String firstName;
 	
-	@NotNull 
-	@Size(min=2, max=100)
+	@NotNull
 	private String lastName;
 	
-	@NotNull // @NotEmpty
-	@Size(min=5, max=255)
-	private String mail;
-	
-	@NotNull // @NotEmpty
-	@Size(min=5, max=255)
-	private String password;
+	@NotNull
+	private int age;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -49,41 +41,28 @@ public class Usuario {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="classrom_id")
-	private Salon salon;
-
-	public Usuario() {}
-
-	public Usuario(long id, String firstName, String lastName, String mail, String password) {
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.mail = mail;
-		this.password = password;
-	}
-
-	public Usuario(String firstName, String lastName, String mail, String password) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.mail = mail;
-		this.password = password;
-	}
-
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="dojos_id")
+	private Dojo dojo;
+	
+	public Ninja(){}
+	
 	@PrePersist
     protected void onCreate(){
         this.createdAt = new Date();
     }
+	
     @PreUpdate
     protected void onUpdate(){
         this.updatedAt = new Date();
     }
-	
-	public long getId() {
+
+    
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -103,20 +82,12 @@ public class Usuario {
 		this.lastName = lastName;
 	}
 
-	public String getMail() {
-		return mail;
+	public int getAge() {
+		return age;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public Date getCreatedAt() {
@@ -135,13 +106,12 @@ public class Usuario {
 		this.updatedAt = updatedAt;
 	}
 
-	public Salon getSalon() {
-		return salon;
+	public Dojo getDojo() {
+		return dojo;
 	}
 
-	public void setSalon(Salon salon) {
-		this.salon = salon;
+	public void setDojo(Dojo dojo) {
+		this.dojo = dojo;
 	}
-	
 	
 }
